@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Design</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <script src="https://kit.fontawesome.com/67ad74ed4f.js" crossorigin="anonymous"></script>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #080808;
+    color: #fff;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url("img/pexels-roberto-nickson-2559941.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+       width: 140px;
+       transition: all 0.5s linear 0s;
+}
+.logo:hover{
+    transform: scale3d(1.1, 1.1, 0.1);
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+        width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+    
+}
+.header-text p:hover{
+    transition: background 0.5s, transform 0.5s;
+    transform: translateY(-15px);
+}
+.header-text h1:hover{
+    transition: background 0.5s, transform 0.5s;
+    transform: translateY(-15px);
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+.header-text h1 span{
+    color: #ff004f;
+}
+/*-----------------About Me --------------------------*/
+#about{
+    padding: 80px 0;
+    color: #ababab;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+    transition: all 0.5s linear 0s;
+}
+.about-col-1 img:hover{
+    transform: scale3d(1.1, 1.1, 0.1);
+}
+.about-col-2{
+      flex-basis: 60%;
+
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+      width: 50%;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+
+}
+.tab-contents ul li span{
+    color: #ff004f;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+/*-------------------services----------------*/
+#services{
+    padding: 30px 0;
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.services-list div{
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.services-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+
+}
+.services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+}
+.services-list div a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.services-list div:hover{
+    background-color: #ff004f;
+    transform: translateY(-10px);
+
+}
+/*------------------portfolio------------------*/
+.portfolio{
+    padding: 50px 0;
+}
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.work{
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work-img{    /*------------------------------------------------------------*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+
+}
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6)#ff004f);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: moz-fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn:hover{
+    background: #ff004f;
+}
+/*--------------------contact-----------------------------*/
+.contact-left{
+    flex-basis: 35%;
+    
+    justify-content: space-evenly;
+}
+.contact-left a{
+    transition: all 0.5s linear 0s;
+}
+.contact-left a:hover{
+    transform: scale3d(1.1, 1.1, 0.1);
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-right button{
+    transition: all 0.5s linear 0s;
+}
+.contact-right button:hover{
+    transform: scale3d(1.1, 1.1, 0.1);
+}
+.contact-left p{
+    margin-top: 30px;
+}
+.contact-left p i{
+    color: #ff004f;
+    margin-right: 15px;
+    font-size: 25px;
+}
+.social-icons{
+    margin-top: 30px;
+    
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+    
+}
+.social-icons a:hover{
+    color: #ff004f;
+    transform: translateY(-5px);
+}
+.btn.btn2{
+    display: inline-block;
+    background: #ff004f;
+}
+.contact-right form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+form btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.copyright i{
+    color: #ff004f;
+}
+/*---------------------CSS For Small Screen------------------*/
+nav .fas{
+    display: none;
+}
+@media only screen and (max-width: 600px){
+    #header{
+        background-image: url(images/phone-background.png);
+    }
+    .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+
+    }
+    .header-text h1{
+        font-size: 30px;
+    }
+    nav .fas{
+        display: block;
+        font-size: 25px;
+    }
+    nav ul{
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fas{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+       font-size: 14px; 
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+    .about { 
+	display: flex; 
+	align-items: center; 
+	background-image: linear-gradient(45deg, #363D73, #2794B3); 
+	justify-content: space-between; 
+	width: 100%;
+
+    } 
+
+    .about .about-text { 
+	width: 450px; 
+	color: #fff; 
+	padding: 5rem 1rem 5rem 5rem; 
+    } 
+
+    .about .about-image img { 
+	height: 400px; 
+	width: 450px; 
+	padding: 5rem 5rem 5rem 1rem; 
+    } 
+}
+</style>
+<body>
+    <div id="header">
+               <div class="container">
+                <nav>
+                    <h2>Samyuktha</h2>
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fas fa-times" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fas fa-bars" onclick="openmenu()"></i>
+                </nav>
+                <div class="header-text">
+                    <p>FrontEnd Designer</p>
+                    <h1>Hi, I'am <span>Chepur Samyuktha</span><br> From INDIA</h1>
+                </div>
+               </div>
+    </div>
+   <!--------------About ME----------------------------------------->
+   <section id="about" class="about"> 
+    <div class="about-text"> 
+        <h1 class="my-heading">About Me</h1> 
+        <p class="lead-para">
+            Hello, I'm Samyuktha Chepur, a dedicated and passionate software engineer with a strong background in both physics and computer science. I recently completed my Master's degree in Physics from Jawaharlal Nehru Technological University, where I graduated with an impressive 80% CGPA.My undergraduate studies in Computer Science at Nalanda Degree College laid a solid foundation for my technical skills, earning me an 83% CGPA.
+        </p>
+
+                <p>Throughout my academic journey, I have engaged in various projects and internships, including:</p>
+                <ul><li>Ionic Conductivity and Activation Energy of Sodium Nitrate</li>
+                    <li> Integration of Optical Network Using Fiber Optics</li>
+                    <li> Research on Dark Matter</li>
+                </ul>
+                
+                <p>
+                    These projects have honed my analytical and problem-solving abilities, as well as my proficiency in using tools such as Matlab, Microsoft Excel, and Google Drive.
+                </p>
+                
+                <h4>Technical Skills:</h4>
+                <ul>
+                    <li>Programming Languages: Basics of C, Python, HTML, CSS</li>
+                    <li>Software Tools: Matlab, Microsoft Excel, Microsoft PowerPoint</li>
+                    <li>Other Skills: Excellent communication, self-learning, and a positive attitude</li>
+                </ul>
+                
+                
+                
+                <p>
+                    I pride myself on my self-confidence, my continuous pursuit of knowledge, and my ability to stay positive in challenging situations. My hobbies include reading books and playing badminton, which help me maintain a balanced and active lifestyle.
+                </p>
+                
+                <p>
+                    Fluent in English, Telugu, and Hindi, I am willing to relocate and eager to work with a team of committed professionals to contribute to innovative projects and achieve organizational goals.
+
+                </p> 
+    </div> 
+    <div class="about-image"> 
+        <img src="https://cdn.statically.io/img/hindisahayta.in/wp-content/uploads/2018/11/Computer-Operator-Key-Responsibilities.png?quality=100" alt="About Image"> 
+    </div> 
+</section>
+     
+    <!----------------------Services---------------------- -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    
+                    <h2>Web Development</h2>
+                    <p>Frontend Development:
+                        HTML, CSS, Bootstrap, JavaScript, React.js.
+                        Responsive website design.
+                        Single Page Applications (SPA).
+                    </p>
+                    <p>
+                        Backend Development:
+                            Python, Java, C#.
+                            Database management using SQL and DBMS.
+                            RESTful API development.
+                    </p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    
+                    <h2>Quality Assurance and Testing</h2>
+                    <p> 
+                        Implementing unit tests to ensure code quality and reliability. 
+                    </p> 
+                    <p> 
+                        Manual and automated testing of web applications. 
+                    </p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    
+                    <h2>Custom Application Development</h2>
+                    <p> 
+                        Building custom applications for task management (e.g., To-Do applications). 
+                    </p> 
+                    <p> 
+                        CRUD operations using JavaScript, DOM manipulation, and local storage. 
+                    </p>
+                    <a href="#">learn more</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+   <!---------------------Portfolio-------------------- -->
+   <div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png" alt="">
+                <div class="layer">
+                    <h3>social Media App</h3>
+                    <p>The app connects you to talented people around the world.
+                        Download it from play store.
+                    </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png" alt="">
+                <div class="layer">
+                    <h3>Music App</h3>
+                    <p>The app connects you to talented people around the world.
+                        Download it from play store.
+                    </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="images/work-3.png" alt="">
+                <div class="layer">
+                    <h3>Online Shopping App</h3>
+                    <p>The app connects you to talented people around the world.
+                        Download it from play store.
+                    </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See More</a>
+    </div>
+   </div>
+<!----------------------contact---------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p> <a href="mail:chepursamyuktha2001@gmail.com"></a> <i class="fa-solid fa-paper-plane"></i>chepursamyuktha2001@gmail.com</p>
+                <p> <a href="tel:6305065612"></a> <i class="fa-solid fa-phone-volume"></i>6305065612</p>
+                <div class="Social-icons">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/?lang=en-in"><i class="fa-brands fa-twitter-square"></i></a>
+                    <a href="https://www.instagram.com/?hl=en"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="#" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="your Name" required>
+                    <input type="email" name="email" placeholder="your Email" required>
+                    <textarea name="Message" rows="6" placeholder="your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="copyright">
+    
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classlist.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+            tabcontent.classlist.remove("active-tab")
+            }
+            event.currentTarget.classlist.add("active-link");
+            document.getElementById(tabname).classlist.add("active-tab")
+        }
+
+    </script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px"
+        }
+    </script>
+    <script>
+        
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzDJXnGc20dfb-l0DmCvc-pUb2mSRQ3ifvic7ANb5BbYB3WiWnDPgdeXnLmDimvtkcYjQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+    </script>
+    
+</body>
+</html>
